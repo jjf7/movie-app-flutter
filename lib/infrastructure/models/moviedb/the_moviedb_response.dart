@@ -20,7 +20,7 @@ class TheMoviedbResponse {
         page: json["page"],
         results: List<MoviedbMovie>.from(
             json["results"].map((x) => MoviedbMovie.fromJson(x))),
-        dates: json["dates"] ? Dates.fromJson(json["dates"]) : null,
+        dates: json["dates"] != null ? Dates.fromJson(json["dates"]) : null,
         totalPages: json["total_pages"],
         totalResults: json["total_results"],
       );

@@ -9,7 +9,10 @@ import 'package:movie_app/infrastructure/models/moviedb/the_moviedb_response.dar
 class MoviedbDatasource extends MoviesDatasource {
   final dio = Dio(BaseOptions(
     baseUrl: 'https://api.themoviedb.org/3',
-    queryParameters: {'key': Environment.themMovieDbKey, 'language': 'es-MX'},
+    queryParameters: {
+      'api_key': Environment.themMovieDbKey,
+      'language': 'es-MX'
+    },
   ));
 
   @override

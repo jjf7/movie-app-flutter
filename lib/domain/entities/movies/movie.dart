@@ -1,4 +1,11 @@
+import 'package:isar/isar.dart';
+
+part 'movie.g.dart';
+
+@collection
 class Movie {
+  Id? IsarId;
+
   final bool adult;
   final String backdropPath;
   final List<String> genreIds;
@@ -8,7 +15,7 @@ class Movie {
   final String overview;
   final double popularity;
   final String posterPath;
-  final DateTime releaseDate;
+  final DateTime? releaseDate;
   final String title;
   final bool video;
   final double voteAverage;

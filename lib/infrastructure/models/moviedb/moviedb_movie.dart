@@ -2,7 +2,7 @@ class MoviedbMovie {
   final String posterPath;
   final bool adult;
   final String overview;
-  final DateTime releaseDate;
+  final DateTime? releaseDate;
   final List<int> genreIds;
   final int id;
   final String originalTitle;
@@ -35,7 +35,9 @@ class MoviedbMovie {
         posterPath: json["poster_path"] ?? '',
         adult: json["adult"] ?? false,
         overview: json["overview"],
-        releaseDate: DateTime.parse(json["release_date"]),
+        releaseDate: json["release_date"] != null && json["release_date"] != ""
+            ? DateTime.parse(json["release_date"])
+            : null,
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
         originalTitle: json["original_title"],
@@ -47,22 +49,4 @@ class MoviedbMovie {
         video: json["video"],
         voteAverage: json["vote_average"]?.toDouble(),
       );
-
-  Map<String, dynamic> toJson() => {
-        "poster_path": posterPath,
-        "adult": adult,
-        "overview": overview,
-        "release_date":
-            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
-        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
-        "id": id,
-        "original_title": originalTitle,
-        "original_language": originalLanguage,
-        "title": title,
-        "backdrop_path": backdropPath,
-        "popularity": popularity,
-        "vote_count": voteCount,
-        "video": video,
-        "vote_average": voteAverage,
-      };
 }

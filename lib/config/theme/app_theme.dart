@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   ThemeData getTheme() => ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.blueAccent,
-      );
+      useMaterial3: true,
+      colorSchemeSeed: Colors.blueAccent,
+      brightness: Brightness.dark);
 }
